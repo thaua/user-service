@@ -1,6 +1,8 @@
 export class User {
-  name: string;
-  email: string;
-  photoUrl: string;
-  passwordHash: string;
+  constructor(
+    public readonly name: string,
+    public readonly email: string,
+    public readonly photoUrl: string,
+    public readonly passwordHash: string,
+  ) {}
 }
