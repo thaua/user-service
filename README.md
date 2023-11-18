@@ -23,7 +23,7 @@ $ script/bash     # access bash into container
 
 ## Architecture
 
-#### Application Flow
+#### Application Flow (To-Be)
 
 ```mermaid
 flowchart TD
