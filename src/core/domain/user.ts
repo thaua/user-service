@@ -1,8 +1,6 @@
 export class User {
-  constructor(
-    public readonly name: string,
-    public readonly email: string,
-    public readonly photoUrl: string,
-    public readonly passwordHash: string,
-  ) {}
+  public name: string | undefined;
+  public email: string | undefined;
+  public photoUrl: string | undefined;
+  public passwordHash: string | undefined;
 }
