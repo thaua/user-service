@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker run -t --rm -v "$(pwd):/app" --name user-service-lint user-service npm run lint
+docker run -t --rm -v "$(pwd):/app" --name user-service-format user-service npm run format

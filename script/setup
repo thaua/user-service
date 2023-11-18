@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker build -f Dockerfile.development -t user-service --progress tty .

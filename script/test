@@ -1,0 +1,5 @@
+#!/bin/bash
+
+script/update
+
+docker run -i --rm -v "$(pwd):/app" --name user-service-test user-service npm run test
