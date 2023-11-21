@@ -1,6 +1,9 @@
+// TODO: Add timestamps
+
 export class User {
-  public name: string | undefined;
-  public email: string | undefined;
-  public photoUrl: string | undefined;
-  public passwordHash: string | undefined;
+  public id!: number;
+  public name!: string;
+  public email!: string;
+  public photoUrl?: string | null;
+  public passwordHash?: string | null;
 }

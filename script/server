@@ -2,4 +2,4 @@
 
 script/update
 
-docker run -it --env-file .env --rm -p 3000:3000 -v "$(pwd):/app" --name user-service-server user-service npm run start:dev
+docker-compose up

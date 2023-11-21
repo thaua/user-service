@@ -1,4 +1,5 @@
 #!/bin/bash
 
-docker build -f Dockerfile.development -t user-service --progress tty .
+docker-compose build
+
 script/update

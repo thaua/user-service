@@ -1,1 +1,3 @@
-console.log('Not implemented.');
+console.log('Not implemented');
+
+process.stdin.pause();

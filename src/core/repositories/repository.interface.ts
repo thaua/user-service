@@ -1,9 +1,6 @@
 export interface Repository<T> {
-  findById(id: number): T | null;
-
-  find(model: Partial<T>): T[];
-
-  create(model: T): T;
-
-  update(id: number, model: T): T;
+  create(model: Omit<T, 'id'>): Promise<T>;
+  update(id: number, model: Partial<T>): Promise<T>;
+  findAllBy(model: Partial<T>): Promise<T[]>;
+  findOneBy(model: Partial<T>): Promise<T | null>;
 }

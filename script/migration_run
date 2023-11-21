@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker-compose run --rm --name user-service-migration app npx prisma migrate deploy
