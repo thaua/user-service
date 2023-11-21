@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker-compose run --rm --name user-service-lint app npm run lint
-docker-compose run --rm --name user-service-format app npm run format
+docker-compose run -T --rm --name user-service-lint app npm run lint
+docker-compose run -T --rm --name user-service-format app npm run format
