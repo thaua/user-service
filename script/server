@@ -2,4 +2,4 @@
 
 script/update
 
-docker-compose up
+docker-compose run -it --rm --service-ports --name user-service-server app npm run start:dev

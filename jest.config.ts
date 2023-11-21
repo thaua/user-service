@@ -12,6 +12,7 @@ const config: Config = {
     'src/**/*.{js,jsx,ts,tsx}',
     '!**/*.interface.ts',
     '!**/*.type.ts',
+    '!**/*.dto.ts',
     '!src/index.ts',
     '!src/infrastructure/web/**/*.ts',
   ],
