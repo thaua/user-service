@@ -2,7 +2,6 @@ import express from 'express';
 import RegistrationUseCase from '@core/usecases/registration.usecase';
 import { ExpressControllerTemplate } from '@presentation/controllers/express-controller';
 import { User } from '@core/domain/user';
-import e from 'express';
 
 export class RegistrationController extends ExpressControllerTemplate<User> {
   constructor(private readonly registrationUseCase: RegistrationUseCase) {
