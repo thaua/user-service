@@ -9,8 +9,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@application/*": ["./src/core/application/*"],
-      "@domain/*": ["./src/core/domain/*"],
+      "@core/*": ["./src/core/*"],
       "@infrastructure/*": ["./src/infrastructure/*"],
       "@presentation/*": ["./src/presentation/*"]
     }

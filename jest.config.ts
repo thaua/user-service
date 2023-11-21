@@ -27,8 +27,7 @@ const config: Config = {
     },
   },
   moduleNameMapper: {
-    '@application/(.*)': ['<rootDir>/src/core/application/$1'],
-    '@domain/(.*)': ['<rootDir>/src/core/domain/$1'],
+    '@core/(.*)': ['<rootDir>/src/core/$1'],
     '@infrastructure/(.*)': ['<rootDir>/src/infrastructure/$1'],
     '@presentation/(.*)': ['<rootDir>/src/presentation/$1'],
   },

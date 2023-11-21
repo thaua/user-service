@@ -1,4 +1,4 @@
-import { User } from '@domain/user';
+import { User } from '@core/domain/user';
 
 describe('User', () => {
   let user: User;
