@@ -1,5 +1,5 @@
 #!/bin/bash
 
-docker-compose run --rm --name user-service-update app npm install
+docker-compose run -T --rm --name user-service-update app npm install
 
 script/migration_run
