@@ -38,6 +38,7 @@ flowchart TD
     USER[User]
     AUTH_ENDPOINT[["Authentication Endpoint"]]
     SIGNUP_ENDPOINT[["Registration Endpoint"]]
+    SIGNUP_CONFIRM_ENDPOINT[["Register Confirmation Endpoint"]]
     VALIDATE_ENDPOINT[["Validation Endpoint"]]
 
     SERVICE[User Service]
@@ -45,10 +46,12 @@ flowchart TD
 
 
     USER -->|"[REST] user data + credentials"| SIGNUP_ENDPOINT
+    USER -->|"[REST] temp hash"| SIGNUP_CONFIRM_ENDPOINT
     USER -->|"[REST] credentials"| AUTH_ENDPOINT
     USER -->|"[REST] token"| VALIDATE_ENDPOINT
 
     SIGNUP_ENDPOINT --> SERVICE
+    SIGNUP_CONFIRM_ENDPOINT --> SERVICE
     AUTH_ENDPOINT --> SERVICE
     VALIDATE_ENDPOINT --> SERVICE
 
