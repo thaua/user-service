@@ -12,13 +12,16 @@ We are using Docker with the [scripts-to-rule-them-all](https://github.com/githu
 have a set of scripts inside `script` folder that should cover all development needs:
 
 ```bash
-$ script/setup    # builds application
-$ script/server   # runs application
-$ script/update   # keeps application and its database schema up to date
-$ script/test     # run tests of the application
-$ script/lint     # runs lint tool on application
-$ script/quality  # runs quality tool on application (CodeClimate)
-$ script/bash     # access bash into container
+$ script/setup                # builds application
+$ script/server               # runs application
+$ script/update               # keeps application and its database schema up to date
+$ script/test                 # run tests of the application
+$ script/lint                 # runs lint tool on application
+$ script/quality              # runs quality tool on application (CodeClimate)
+$ script/bash                 # access bash into container
+$ script/migration_reset      # reset schema and re-run migrations
+$ script/migration_generate   # generate migrations
+$ script/migration_run        # apply migrations
 ```
 
 ## Architecture
