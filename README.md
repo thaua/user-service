@@ -1,3 +1,8 @@
+<p align="center">
+<a href="https://codeclimate.com/github/thaua/user-service/maintainability"><img src="https://api.codeclimate.com/v1/badges/9ddec246b88866345afd/maintainability" /></a>
+<a href="https://codeclimate.com/github/thaua/user-service/test_coverage"><img src="https://api.codeclimate.com/v1/badges/9ddec246b88866345afd/test_coverage" /></a>
+</p>
+
 ## Description
 
 This is a generic application responsible for user domain responsibilities, such as signing up and signing in. 
