@@ -1,4 +1,4 @@
-import { Hash } from './hash.type';
+import { Hash } from '../../domain/hash.type';
 
 export interface Hasher<T> {
   getHash(object: T): Hash;

@@ -25,7 +25,7 @@ describe('RegistrationController', () => {
           name: 'John Doe',
           email: 'john.doe@example.com',
           photoUrl: 'https://example.com/photo.jpg',
-          passwordHash: 'hashedPassword',
+          password: 'notHashedPassword',
         },
       } as express.Request;
 
@@ -70,8 +70,8 @@ describe('RegistrationController', () => {
             name: 'John Doe',
             email: 'john.doe@example.com',
             photoUrl: 'https://example.com/photo.jpg',
-            passwordHash: 'hashedPassword',
           },
+          password: 'notHashedPassword',
         });
         expect(responseMock.json).toHaveBeenCalledWith(mockRegisteredUser);
         expect(responseMock.status).toHaveBeenCalledWith(200);

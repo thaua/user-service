@@ -1,6 +1,7 @@
 import { UserRepository } from '@core/repositories/user-repository.interface';
 import { User } from '@core/domain/user';
 import { PrismaClient } from '@prisma/client';
+import { Hash } from '@core/domain/hash.type';
 
 export class UserRepositoryPrisma implements UserRepository {
   constructor(private readonly prismaClient: PrismaClient) {}
@@ -74,7 +75,7 @@ export class UserRepositoryPrisma implements UserRepository {
     name: string;
     email: string;
     photoUrl: string | null;
-    passwordHash: string | null;
+    passwordHash: Hash;
   }): User {
     const user = new User();
     user.id = entity.id;
@@ -90,7 +91,7 @@ export class UserRepositoryPrisma implements UserRepository {
     name: string | undefined;
     email: string | undefined;
     photoUrl: string | null | undefined;
-    passwordHash: string | null | undefined;
+    passwordHash: Hash | undefined;
   } {
     return {
       id: model.id,

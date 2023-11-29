@@ -14,8 +14,8 @@ export class RegistrationController extends ExpressControllerTemplate<User> {
         name: request.body.name,
         email: request.body.email,
         photoUrl: request.body.photoUrl,
-        passwordHash: request.body.passwordHash,
       },
+      password: request.body.password,
     });
   }
 }

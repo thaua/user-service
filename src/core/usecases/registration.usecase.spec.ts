@@ -2,50 +2,69 @@ import { UserRepository } from '@core/repositories/user-repository.interface';
 import { User } from '@core/domain/user';
 import RegistrationInputDto from '@core/usecases/dtos/registration-input.dto';
 import RegistrationUseCase from '@core/usecases/registration.usecase';
+import {
+  PasswordHasher,
+  PasswordHashInput,
+} from '@core/security/hashers/password-hasher.interface';
 
 describe('RegistrationUseCase', () => {
   let registrationUseCase: RegistrationUseCase;
   let testRepository: UserRepository;
+  let testPasswordHasher: PasswordHasher;
 
   beforeEach(() => {
     testRepository = {} as UserRepository;
+    testPasswordHasher = {} as PasswordHasher;
 
-    registrationUseCase = new RegistrationUseCase(testRepository);
+    registrationUseCase = new RegistrationUseCase(testRepository, testPasswordHasher);
   });
 
   describe('execute', () => {
-    it('creates a new user', async () => {
+    const inputEmail = 'test@example.com';
+    const inputPassword = 'notHashedPassword';
+    const expectedHashedPassword = 'hashedPassword';
+    const expectedGeneratedId = 1;
+
+    beforeEach(() => {
       testRepository.create = jest.fn().mockResolvedValueOnce({
-        id: 1,
+        id: expectedGeneratedId,
         name: 'Test User',
-        email: 'test@example.com',
+        email: inputEmail,
         photoUrl: 'https://example.com/photo.jpg',
-        passwordHash: 'hashedPassword',
+        passwordHash: expectedHashedPassword,
       } as User);
 
+      testPasswordHasher.getHash = jest.fn().mockReturnValue(expectedHashedPassword);
+    });
+
+    it('creates a new user', async () => {
       const registrationDto: RegistrationInputDto = {
         user: {
           name: 'Test User',
-          email: 'test@example.com',
+          email: inputEmail,
           photoUrl: 'https://example.com/photo.jpg',
-          passwordHash: 'hashedPassword',
         },
+        password: inputPassword,
       };
 
       const user = await registrationUseCase.execute(registrationDto);
 
-      expect(user.id).toBeDefined();
+      expect(user.id).toBe(expectedGeneratedId);
       expect(user.name).toBe('Test User');
-      expect(user.email).toBe('test@example.com');
+      expect(user.email).toBe(inputEmail);
       expect(user.photoUrl).toBe('https://example.com/photo.jpg');
-      expect(user.passwordHash).toBe('hashedPassword');
+      expect(user.passwordHash).toBe(expectedHashedPassword);
 
       expect(testRepository.create).toHaveBeenCalledWith({
         email: 'test@example.com',
         name: 'Test User',
         photoUrl: 'https://example.com/photo.jpg',
-        passwordHash: 'hashedPassword',
+        passwordHash: expectedHashedPassword,
       });
+      expect(testPasswordHasher.getHash).toHaveBeenCalledWith({
+        email: inputEmail,
+        password: inputPassword,
+      } as PasswordHashInput);
     });
   });
 });

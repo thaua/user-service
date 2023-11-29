@@ -1,7 +1,9 @@
-import { PasswordHasher } from '@core/security/hashers/password-hasher.interface';
-import { Hash } from '@core/security/hashers/hash.type';
+import {
+  PasswordHasher,
+  PasswordHashInput,
+} from '@core/security/hashers/password-hasher.interface';
+import { Hash } from '@core/domain/hash.type';
 import { genSaltSync, hashSync, compareSync } from 'bcrypt';
-import { PasswordHashInput } from '@core/security/hashers/password-hash-input.type';
 
 export class PasswordHasherImpl implements PasswordHasher {
   getHash(object: PasswordHashInput): Hash {

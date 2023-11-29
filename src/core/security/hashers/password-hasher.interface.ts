@@ -1,4 +1,5 @@
 import { Hasher } from './hasher.interface';
-import { PasswordHashInput } from '@core/security/hashers/password-hash-input.type';
+
+export type PasswordHashInput = { email: string; password: string };
 
 export interface PasswordHasher extends Hasher<PasswordHashInput> {}
