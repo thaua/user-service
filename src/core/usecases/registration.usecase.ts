@@ -1,8 +1,8 @@
-import RegistrationInputDto from '@core/usecases/dtos/registration-input.dto';
-import { UserRepository } from '@core/repositories/user-repository.interface';
 import { User } from '@core/domain/user';
-import { UseCase } from '@core/usecases/usecase.interface';
+import { UserRepository } from '@core/repositories/user-repository.interface';
 import { PasswordHasher } from '@core/security/hashers/password-hasher.interface';
+import RegistrationInputDto from '@core/usecases/dtos/registration-input.dto';
+import { UseCase } from '@core/usecases/usecase.interface';
 
 export default class RegistrationUseCase implements UseCase<RegistrationInputDto, User> {
   constructor(

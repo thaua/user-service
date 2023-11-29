@@ -1,6 +1,6 @@
-import express from 'express';
-import { RegistrationController } from '@presentation/controllers/registration.controller';
 import { registrationUseCase } from '@infrastructure/bootstrap/usecases.bootstrap';
+import { RegistrationController } from '@presentation/controllers/registration.controller';
+import express from 'express';
 
 export const appRouter = express.Router();
 

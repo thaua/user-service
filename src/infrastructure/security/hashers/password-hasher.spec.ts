@@ -1,5 +1,5 @@
-import { PasswordHasherImpl } from '@infrastructure/security/hashers/password-hasher';
 import { PasswordHashInput } from '@core/security/hashers/password-hasher.interface';
+import { PasswordHasherImpl } from '@infrastructure/security/hashers/password-hasher';
 
 describe('PasswordHasherImpl', () => {
   let passwordHasher: PasswordHasherImpl;

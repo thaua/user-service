@@ -1,5 +1,5 @@
-import { PrismaClient } from '@prisma/client';
 import { UserRepositoryPrisma } from '@infrastructure/repositories/user-repository-prisma';
+import { PrismaClient } from '@prisma/client';
 
 describe('UserRepositoryPrisma', () => {
   let userRepository: UserRepositoryPrisma;

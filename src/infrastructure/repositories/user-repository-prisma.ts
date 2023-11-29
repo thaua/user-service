@@ -1,7 +1,7 @@
-import { UserRepository } from '@core/repositories/user-repository.interface';
-import { User } from '@core/domain/user';
-import { PrismaClient } from '@prisma/client';
 import { Hash } from '@core/domain/hash.type';
+import { User } from '@core/domain/user';
+import { UserRepository } from '@core/repositories/user-repository.interface';
+import { PrismaClient } from '@prisma/client';
 
 export class UserRepositoryPrisma implements UserRepository {
   constructor(private readonly prismaClient: PrismaClient) {}

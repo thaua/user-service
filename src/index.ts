@@ -1,8 +1,8 @@
-import * as core from 'express-serve-static-core';
-import express from 'express';
 import { appRouter } from '@presentation/app-router';
-import * as process from 'process';
 import bodyParser from 'body-parser';
+import express from 'express';
+import * as core from 'express-serve-static-core';
+import * as process from 'process';
 
 const app: core.Express = express();
 

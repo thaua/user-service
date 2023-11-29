@@ -1,11 +1,11 @@
-import { UserRepository } from '@core/repositories/user-repository.interface';
 import { User } from '@core/domain/user';
-import RegistrationInputDto from '@core/usecases/dtos/registration-input.dto';
-import RegistrationUseCase from '@core/usecases/registration.usecase';
+import { UserRepository } from '@core/repositories/user-repository.interface';
 import {
   PasswordHasher,
   PasswordHashInput,
 } from '@core/security/hashers/password-hasher.interface';
+import RegistrationInputDto from '@core/usecases/dtos/registration-input.dto';
+import RegistrationUseCase from '@core/usecases/registration.usecase';
 
 describe('RegistrationUseCase', () => {
   let registrationUseCase: RegistrationUseCase;

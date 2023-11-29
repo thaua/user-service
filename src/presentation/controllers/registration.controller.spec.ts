@@ -1,7 +1,7 @@
-import express from 'express';
+import { User } from '@core/domain/user';
 import RegistrationUseCase from '@core/usecases/registration.usecase';
 import { RegistrationController } from '@presentation/controllers/registration.controller';
-import { User } from '@core/domain/user';
+import express from 'express';
 
 describe('RegistrationController', () => {
   let registrationUseCase: RegistrationUseCase;
