@@ -8,6 +8,8 @@ describe('RegistrationController', () => {
   let registrationController: RegistrationController;
 
   beforeEach(() => {
+    console.error = jest.fn();
+
     registrationUseCase = {
       execute: jest.fn(),
     } as unknown as RegistrationUseCase;
@@ -22,8 +24,8 @@ describe('RegistrationController', () => {
     beforeEach(() => {
       requestMock = {
         body: {
-          name: 'John Doe',
-          email: 'john.doe@example.com',
+          name: 'Thauã Silveira',
+          email: 'thaua@example.com',
           photoUrl: 'https://example.com/photo.jpg',
           password: 'notHashedPassword',
         },
@@ -45,7 +47,9 @@ describe('RegistrationController', () => {
 
         expect(registrationUseCase.execute).toHaveBeenCalled();
         expect(responseMock.json).toHaveBeenCalledWith({
-          message: 'Internal Server Error.',
+          error: {
+            message: 'Internal Server Error.',
+          },
         });
         expect(responseMock.status).toHaveBeenCalledWith(500);
       });
@@ -55,8 +59,8 @@ describe('RegistrationController', () => {
       it('return JSON response with object returned', async () => {
         const mockRegisteredUser: User = {
           id: 1,
-          name: 'John Doe',
-          email: 'john.doe@example.com',
+          name: 'Thauã Silveira',
+          email: 'thaua@example.com',
           photoUrl: 'https://example.com/photo.jpg',
           passwordHash: 'hashedPassword',
         };
@@ -67,8 +71,8 @@ describe('RegistrationController', () => {
 
         expect(registrationUseCase.execute).toHaveBeenCalledWith({
           user: {
-            name: 'John Doe',
-            email: 'john.doe@example.com',
+            name: 'Thauã Silveira',
+            email: 'thaua@example.com',
             photoUrl: 'https://example.com/photo.jpg',
           },
           password: 'notHashedPassword',

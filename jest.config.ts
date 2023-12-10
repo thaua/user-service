@@ -14,7 +14,6 @@ const config: Config = {
     '!**/*.type.ts',
     '!**/*.dto.ts',
     '!src/index.ts',
-    '!src/infrastructure/web/**/*.ts',
   ],
   coverageDirectory: './coverage',
   coveragePathIgnorePatterns: ['/node_modules/'],
