@@ -9,8 +9,8 @@ import { JsonWebTokenError, TokenExpiredError } from 'jsonwebtoken';
 
 export class UserTokenerImpl implements UserTokener {
   // TODO: Move secret and expiration to Env Var
-  TOKEN_SECRET = 'developmentSecret';
-  TOKEN_EXPIRATION_IN_HOURS = 24;
+  private readonly TOKEN_SECRET = 'developmentSecret';
+  private readonly TOKEN_EXPIRATION_IN_HOURS = 24;
 
   tokenizeObject(object: User): Token {
     return jwt.sign(this.mapToPlainObject(object), this.TOKEN_SECRET, {
@@ -22,10 +22,10 @@ export class UserTokenerImpl implements UserTokener {
     try {
       return jwt.verify(token, this.TOKEN_SECRET) as User;
     } catch (e) {
-      if (e instanceof JsonWebTokenError) {
-        throw new UserTokenInvalidError();
-      } else if (e instanceof TokenExpiredError) {
+      if (e instanceof TokenExpiredError) {
         throw new UserTokenExpiredError();
+      } else if (e instanceof JsonWebTokenError) {
+        throw new UserTokenInvalidError();
       } else {
         throw new InfrastructureError('Unknown error on decoding token.', e as Error);
       }
